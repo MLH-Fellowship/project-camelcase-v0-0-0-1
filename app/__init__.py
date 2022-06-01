@@ -1,11 +1,14 @@
-import os
-from flask import Flask, render_template, request
-from dotenv import load_dotenv
+from flask import Flask
+from configs import config
 
-load_dotenv()
-app = Flask(__name__)
+def create_app(config_profile: str):
+    #creates app instance
+    app = Flask(__name__)
+    app.config.from_object(config[config_profile])
 
+    #loads the view(s)
+    from .main import main as main_blueprint
+    app.register_blueprint(main_blueprint)
 
-@app.route('/')
-def index():
-    return render_template('index.html', title="MLH Fellow", url=os.getenv("URL"))
+    #returns app instance
+    return app
