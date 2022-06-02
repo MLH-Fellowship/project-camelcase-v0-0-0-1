@@ -10,6 +10,9 @@
     <meta property="og:title" content="Personal Portfolio" />
     <meta property="og:description" content="My Personal Portfolio" />
     <meta property="og:url" content="{{ url }}" />
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
@@ -32,13 +35,31 @@
         </a>
       </div>
     </header>
-
+    <div class="container">
     <div class="profile">
       <div id="profile-picture" class="profile-picture">
-        <img src="./static/img/d_logo_2.jpeg" />
-        <!-- <img src="./static/img/logo.jpg" /> -->
+        <!-- <img src="./static/img/d_logo_2.jpeg" /> -->
+        <img src="./static/img/logo.jpg" />
       </div>
       <h1>{{ title }}</h1>
+      <div class="container">
+      <div class="about"">
+        <div class="row g-0 bg-light position-relative">
+          <div class="col-md-6 mb-md-0 p-md-4">
+            <img src="./static/img/d_logo_2.jpeg" class="w-100" alt="...">
+          </div>
+          <div class="col-md-6 p-4 ps-md-0">
+            <h5 class="mt-0">About Dario Arias</h5>
+            <p>Dario is a senior at Hunter College. He enjoys exploring new technologies and taking on new challenges. 
+              On his free time you can find him playing around with Data Structures and Algorithms as well as breaking the call stack with recursion.</p>
+            <a href="#" class="stretched-link">Linkedin</a>
+            <a href="#" class="stretched-link">GitHub</a>
+          </div>
+        </div>
+      </div>
+      </div>
     </div>
+  </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
   </body>
 </html>
