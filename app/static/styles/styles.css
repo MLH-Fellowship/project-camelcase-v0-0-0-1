@@ -182,15 +182,16 @@ body {
 
 .main-section-description-text {
   color: rgba(28.000000230968, 40.00000141561031, 51.00000075995922, 1);
-  width: 268px;
-  height: 175.8632354736328px;
-  position: absolute;
-  left: 0.000005489934665092733px;
-  top: 85.97757720947266px;
-  font-family: Inter;
-  text-align: center;
-  font-size: 28px;
-  letter-spacing: 0;
+  /* width: 268px; */
+  /* height: 175.8632354736328px; */
+  /* position: relative; */
+  /* left: 0.000005489934665092733px; */
+  /* top: 85.97757720947266px; */
+  /* font-family: Inter; */
+  /* text-align: center; */
+  font-size: 3rem;
+  /* padding: 1rem, 1rem, 1rem, 1rem; */
+  /* letter-spacing: 0; */
 }
 
 .dario-about-title {
