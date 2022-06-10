@@ -1,3 +1,4 @@
+from pickle import FALSE
 import secrets
 
 class Config:
@@ -8,7 +9,11 @@ class Config:
 class DevelopmentConfig(Config):
   DEBUG = True #enables debug mode
 
+class ProductionConfig(Config):
+  DEBUG = False #enables debug mode
+  FLASK_COVERAGE = False
 
 config = {
-  'development': DevelopmentConfig
+  'development': DevelopmentConfig,
+  'production': ProductionConfig
 }

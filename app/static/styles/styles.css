@@ -1,0 +1,230 @@
+/* 
+
+Colors: 
+Navy Blue - #05445E
+Blue Grotto - #189AB4
+Blue Green - #75E6DA
+Baby Blue - #D4F1F4
+
+*/
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  font-size: 1.4rem;
+}
+
+.navbar div a {
+  color: white;
+}
+
+.main-home {
+  background-color: #d4f1f4;
+  max-width: 100%;
+  width: 100%;
+  position: absolute;
+  /* overflow: hidden; */
+  /* height: 1920px; */
+  height: 95vh;
+}
+
+.home-section {
+  background-color: #189ab4;
+  width: 100%;
+  position: absolute;
+  /* background-color: red; */
+}
+
+.home-section-top {
+  left: 0px;
+  top: 19.8rem;
+  height: 40rem;
+  display: inline-flex;
+  width: 100vw;
+}
+
+.home-section-about {
+  /* background-color: orangered; */
+  width: 46vw;
+  height: 50rem;
+  position: relative;
+  top: -5rem;
+  /* left: 66px; */
+  /* top: 177px; */
+}
+
+.home-section-about_left {
+  left: 1vw;
+  display: inline-flex;
+  /* background-color: red; */
+  margin-right: 6vw;
+}
+
+.home-section-about_right {
+  /* left: 5rem;
+  display: inline-flex; */
+  /* background-color: red; */
+  display: inline-flex;
+}
+
+.main-about-profile {
+  background-color: #75e6da;
+  /* top: 10rem; */
+  width: 40rem;
+  height: 100%;
+  border-radius: 5rem;
+  position: relative;
+}
+
+.main-about-profile-description_left {
+  background-color: #d4f1f4;
+  width: 26rem;
+  height: 35rem;
+  position: relative;
+  /* border: solid red; */
+  border-radius: 2.5rem;
+  /* left: 4px; */
+  top: 7.5rem;
+  left: 0.2rem;
+}
+
+.main-about-profile-description_right {
+  background-color: #d4f1f4;
+  width: 26rem;
+  height: 35rem;
+  position: relative;
+  /* border: solid red; */
+  border-radius: 2.5rem;
+  /* left: 4px; */
+  top: 7.5rem;
+  margin-right: 0.2rem;
+  /* left: 0.2rem; */
+}
+
+.main-about-profile-actions {
+  /* background-color: #189ab479; */
+  width: 100%;
+  height: 7rem;
+  /* left: 99px; */
+  /* top: 37rem; */
+  /* top: 15rem; */
+  top: 3.5rem;
+  position: relative;
+}
+
+.button {
+  background-color: #189ab4;
+  padding: 1.5rem;
+  /* height: 2rem; */
+  border-radius: 5rem;
+  color: white;
+  text-decoration: none;
+  font-weight: bolder;
+  text-transform: uppercase;
+  position: absolute;
+}
+
+.button-profile-actions {
+  top: 1rem;
+  /* left: 7.5vw; */
+  left: 14rem;
+  /* transform: translate(50%, -50); */
+}
+
+.button:hover {
+  /* width: 1.5rem;
+  height: 1.5rem; */
+  box-shadow: 0.5rem 0.5rem 0.1rem rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
+  /* background-color: red; */
+}
+
+.left-carousel {
+  /* max-width: 100%; */
+  position: relative;
+  background-color: red;
+  /* top: -25rem; */
+  /* top: 8rem; */
+  top: 4rem;
+}
+.main-section-about-title {
+  position: relative;
+  /* background-color: rebeccapurple; */
+  height: 3rem;
+  /* width: 100%; */
+  max-width: 50%;
+  top: 1rem;
+  left: 10rem;
+}
+
+.main-section-about-title_text {
+  font-size: 5rem;
+  color: white;
+  font-weight: bold;
+  /* letter-spacing: 1rem; */
+  text-align: center;
+}
+
+.main-section-about-title_text:hover {
+  letter-spacing: 1rem;
+}
+
+.main-section-description-text {
+  color: rgba(28.000000230968, 40.00000141561031, 51.00000075995922, 1);
+  width: 268px;
+  height: 175.8632354736328px;
+  position: absolute;
+  left: 0.000005489934665092733px;
+  top: 85.97757720947266px;
+  font-family: Inter;
+  text-align: center;
+  font-size: 28px;
+  letter-spacing: 0;
+}
+
+.dario-about-title {
+  /* background-color: red; */
+  text-align: center;
+}
+
+.dario-about {
+  /* background-color: blue; */
+  position: relative;
+  top: 5rem;
+}
+
+.dario-work-exp {
+  /* top: 5rem; */
+  position: relative;
+  /* background-color: red; */
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.dario-section {
+  position: relative;
+  /* top: 50rem; */
+  text-align: center;
+  margin-bottom: 5rem;
+  /* margin-bottom: 1rem; */
+}
+
+.test {
+  background-color: green;
+}
+
+.dario-iframe {
+  /* width: ; */
+  height: 35rem;
+}
