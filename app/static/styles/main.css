@@ -103,3 +103,28 @@ body {
   font-weight: 700;
 }
 
+.carousel .item{
+  height: 200px;
+}
+
+.item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 200px;
+}
+
+.map-responsive{
+  overflow:hidden;
+  padding-bottom:50%;
+  position:relative;
+  height:0;
+}
+.map-responsive iframe{
+  left:0;
+  top:0;
+  height:50%;
+  width:50%;
+  position:absolute;
+}
+
