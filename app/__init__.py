@@ -14,6 +14,7 @@ def create_app(config_profile: str):
     #loads the view(s)
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
+    
 
     #returns app instance
     return app
