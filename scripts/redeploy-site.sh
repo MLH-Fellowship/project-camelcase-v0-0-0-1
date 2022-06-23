@@ -1,3 +1,4 @@
+# !/bin/bash
 cd /root/personal-portfolio
 if [[ $? -ne 0 ]]
   then 
@@ -5,7 +6,9 @@ if [[ $? -ne 0 ]]
     exit 1
 fi
 
-# tmux new -s project_inst
+#TODO: update to check if tmux session 'flask_instance' exists if-so, end it
+
+# fetch new updates
 git fetch && git reset origin/main --hard
 if [[ $? -ne 0 ]]; then
   echo "Warning: Unable to fetch updates" >&2
