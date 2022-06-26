@@ -6,5 +6,5 @@ venv
 python3-virtualenv
 flask.sqlite
 .DS_Store
-notes.txt
+**/notes.txt
 **/venv 
