@@ -1,10 +1,10 @@
 # !/bin/bash
-# cd /root/personal-portfolio
-# if [[ $? -ne 0 ]]
-#   then 
-#     echo 'Personal Portfolio not found!' >&2
-#     exit 1
-# fi
+cd /root/personal-portfolio
+if [[ $? -ne 0 ]]
+  then 
+    echo 'Personal Portfolio not found!' >&2
+    exit 1
+fi
 
 
 if [[ \ $*\  == *\ --pull-update\ * ]] || [[ \ $*\  == *\ -p\ * ]]; then
