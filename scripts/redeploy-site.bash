@@ -45,6 +45,9 @@ fi
 #TODO: update to check if tmux session 'flask_instance' exists if-so, end it
 if [[ \ $*\  == *\ --with-tmux\ * ]]; then
   echo "starting server with tmux"
+  
+  $(tmux ls | grep "flask_instance") && tmux kill-session -t flask_instance
+
   tmux new-session -d -s flask_instance
   tmux send-keys -t flask_instance "./scripts/launch.bash" Enter
 else
