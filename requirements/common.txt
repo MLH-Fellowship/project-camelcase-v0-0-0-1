@@ -27,7 +27,6 @@ peewee==3.14.10
 pexpect==4.8.0
 pickleshare==0.7.5
 prompt-toolkit==3.0.29
-protobuf==4.21.1
 psutil==5.9.1
 ptyprocess==0.7.0
 pure-eval==0.2.2
