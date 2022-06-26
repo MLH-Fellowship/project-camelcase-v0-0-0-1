@@ -16,6 +16,6 @@ export MYSQL_DATABASE="myportfoliodb"
 
 #uses flask CLI to run
 flask run --host=0.0.0.0
-if [[$? -ne 0 ]]; then
-  echo "Unable to run the start Flask Server" >&2
+if [[ $? -ne 0 ]]; then
+  echo "Unable to start Flask Server <Make sure Flask has been installed>" >&2
 fi
