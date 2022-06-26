@@ -3,6 +3,7 @@ from configs import config
 from flask_bootstrap import Bootstrap
 import os
 from peewee import *
+from flask_moment import Moment
 # from flask_sqlalchemy import SQLAlchemy
 # from . import models
 # import os
@@ -25,6 +26,8 @@ db = MySQLDatabase(
 
 # db = SQLAlchemy()
 bootstrap = Bootstrap()
+moment = Moment()
+
 def create_app(config_profile: str):
     #creates app instance
     app = Flask(__name__)
@@ -32,6 +35,7 @@ def create_app(config_profile: str):
 
     #init plug ins
     bootstrap.init_app(app)
+    moment.init_app(app)
     # db.init_app(app)
 
     #loads the view(s)

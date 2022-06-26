@@ -1,6 +1,8 @@
 from . import main
 from flask import abort, jsonify, render_template, send_file
 import os
+from app.models import TimelinePost
+from datetime import datetime
 
 @main.route('/')
 def index():
@@ -13,6 +15,12 @@ def about_gabby():
 @main.route('/dario')
 def about_dario():
     return render_template('about_dario.html', title="MLH Fellow", url=os.getenv("URL"))
+
+
+@main.route('/timeline')
+def timeline():
+    posts = TimelinePost.select()
+    return render_template('timeline.html', title='Timeline', timeline_events=[post for post in posts])
 
 @main.route('/places/<string:for_person>')
 def visited_map(for_person: str = None):
