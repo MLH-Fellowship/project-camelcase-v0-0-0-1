@@ -40,6 +40,15 @@ if [[ \ $*\  == *\ --update-env\ * ]]; then
   echo "[UPDATE-ENV: HELP] provide which config to update env with. --update-env-dev for development config, --update-env-prod for production env" >&2
 fi
 
+if [[ \ $*\  == *\ --deploy-db\ * ]]; then
+  export DB_URL="localhost:5000"
+  export MYSQL_HOST="localhost"
+  export MYSQL_USER="myportfolio"
+  export MYSQL_PASSWORD="mypassword"
+  export MYSQL_DATABASE="myportfoliodb"
+  flask deploy
+fi
+
 #TODO: update to check if tmux session 'flask_instance' exists if-so, end it
 if [[ \ $*\  == *\ --with-tmux\ * ]]; then
   echo "starting server with tmux"
