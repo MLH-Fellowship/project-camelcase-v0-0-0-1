@@ -5,7 +5,8 @@
 #     echo 'Personal Portfolio not found!' >&2
 #     exit 1
 # fi
-
+#./scripts/redeploy-site.bash --with-tmux --pull-update --update-env-prod 
+#./scripts/redeploy-site.bash --with-tmux --update-env-prod 
 
 if [[ \ $*\  == *\ --pull-update\ * ]] || [[ \ $*\  == *\ -p\ * ]]; then
   echo "Pulling Update"
@@ -26,7 +27,6 @@ if [[ \ $*\  == *\ --update-env-prod\ * ]]; then
   fi
 fi
 
-
 if [[ \ $*\  == *\ --update-env-dev\ * ]]; then
   echo "Updating env with dev"
   source ./venv/bin/activate
@@ -36,11 +36,9 @@ if [[ \ $*\  == *\ --update-env-dev\ * ]]; then
   fi
 fi
 
-
 if [[ \ $*\  == *\ --update-env\ * ]]; then
   echo "[UPDATE-ENV: HELP] provide which config to update env with. --update-env-dev for development config, --update-env-prod for production env" >&2
 fi
-
 
 #TODO: update to check if tmux session 'flask_instance' exists if-so, end it
 if [[ \ $*\  == *\ --with-tmux\ * ]]; then
