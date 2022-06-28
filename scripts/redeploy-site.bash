@@ -79,6 +79,17 @@ if [[ \ $*\  == *\ --dev-mode\ * ]]; then
 fi
 
 if [[ \ $*\  == *\ --help\ * ]]; then
-  echo "Here are all of the options available \n\t--pull-update => gets the latest update from github\n\t--update-env-prod => updates the environment using production dependencies \n\t--update-env-dev => udpates the venv using dev dependencies\n\t--with-tmux--starts server using a tmux session deattached \n\t--with-service => starts the application using a service\n\t--dev-mode => starts the application in dev mode without tmux or a service"
+  echo "Here are all of the options available\
+        \n\t--pull-update      => Gets the latest update from github\
+        \n\t--update-env-prod  => Updates the virtual environment using production dependencies\
+        \n\t--update-env-dev   => Udpates the virtual environment using development dependencies\
+        \n\t--with-tmux        => Starts the application using a tmux session deattached\
+        \n\t--with-service     => Starts the application using a service\
+        \n\t--dev-mode         => Starts the application in dev mode without tmux or a service\
+        \n\t--help             => Shows this menu\
+        "
+else 
+  echo "Exiting deploy script. Use --help for more"
 fi
+
 # tmux attach
