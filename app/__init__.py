@@ -17,10 +17,10 @@ from flask_moment import Moment
 # )
 
 db = MySQLDatabase(
-  os.environ.get('MYSQL_DATABASE'),
-  user=os.environ.get('MYSQL_USER'),
-  password=os.environ.get('MYSQL_PASSWORD'),
-  host=os.environ.get('MYSQL_HOST'),
+  os.getenv('MYSQL_DATABASE'),
+  user=os.getenv('MYSQL_USER'),
+  password=os.getenv('MYSQL_PASSWORD'),
+  host=os.getenv('MYSQL_HOST'),
   port=3306
 )
 
