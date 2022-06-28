@@ -62,4 +62,18 @@ else
   "./scripts/launch.bash"
 fi
 
+if [[ \ $*\  == *\ --with-service\ * ]]; then
+  # systemctl start myportfolio # - for reference
+  # systemctl enable myportfolio # - for reference
+  echo "Starting server with system service"
+  systemctl daemon-reload
+  systemctl restart myportfolio
+  if [[ $? -ne 0 ]]; then
+    echo "Unable to start service, ensure service has been defined" >&2
+    exit 1
+  fi
+  sleep 1s
+  systemctl status myportfolio
+fi
+
 # tmux attach
