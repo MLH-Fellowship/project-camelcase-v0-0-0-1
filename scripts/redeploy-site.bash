@@ -57,9 +57,6 @@ if [[ \ $*\  == *\ --with-tmux\ * ]]; then
 
   tmux new-session -d -s flask_instance
   tmux send-keys -t flask_instance "./scripts/launch.bash" Enter
-else
-  echo "WARMING: Tmux not set, server starting on the foreground. Use '--with-tmux' to start server on the background with tmux"
-  "./scripts/launch.bash"
 fi
 
 if [[ \ $*\  == *\ --with-service\ * ]]; then
@@ -76,4 +73,9 @@ if [[ \ $*\  == *\ --with-service\ * ]]; then
   systemctl status myportfolio
 fi
 
+if [[ \ $*\  == *\ --dev-mode\ * ]]; then
+  echo "WARMING: starting app in dev mode"
+  ./scripts/launch.bash
+  
+fi
 # tmux attach
