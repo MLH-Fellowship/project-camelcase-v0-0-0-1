@@ -1,14 +1,16 @@
 import secrets
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 class Config:
   SECRET_KEY = secrets.token_hex(255) #creates app's secret key
-  FLASK_COVERAGE = True #Sets Coverage for unit testing and for testing coverage
-  DB_URL=os.environ.get('DB_URL', '')
-  MYSQL_HOST=os.environ.get('MYSQL_HOST', '')
-  MYSQL_USER=os.environ.get('MYSQL_USER', '')
-  MYSQL_PASSWORD=os.environ.get('MYSQL_PASSWORD', '')
-  MYSQL_DATABASE=os.environ.get('MYSQL_DATABASE', '')
+  FLASK_COVERAGE = False #Sets Coverage for unit testing and for testing coverage
+  DB_URL=os.getenv('DB_URL')
+  MYSQL_HOST=os.getenv('MYSQL_HOST')
+  MYSQL_USER=os.getenv('MYSQL_USER')
+  MYSQL_PASSWORD=os.getenv('MYSQL_PASSWORD')
+  MYSQL_DATABASE=os.getenv('MYSQL_DATABASE')
 
 class DevelopmentConfig(Config):
   DEBUG = True #enables debug mode
