@@ -76,6 +76,9 @@ fi
 if [[ \ $*\  == *\ --dev-mode\ * ]]; then
   echo "WARMING: starting app in dev mode"
   ./scripts/launch.bash
-  
+fi
+
+if [[ \ $*\  == *\ --help\ * ]]; then
+  echo "Here are all of the options available \n\t--pull-update => gets the latest update from github\n\t--update-env-prod => updates the environment using production dependencies \n\t--update-env-dev => udpates the venv using dev dependencies\n\t--with-tmux--starts server using a tmux session deattached \n\t--with-service => starts the application using a service\n\t--dev-mode => starts the application in dev mode without tmux or a service"
 fi
 # tmux attach
