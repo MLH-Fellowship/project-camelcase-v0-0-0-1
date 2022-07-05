@@ -22,6 +22,6 @@ def test():
   import unittest
   # print(test_names)
   tests = unittest.TestLoader().discover('tests')
-  unittest.TextTestRunner(verbosity=1).run(test=tests)
+  unittest.TextTestRunner(verbosity=2).run(test=tests)
   # sys.exit(not result.wasSuccessful())
   

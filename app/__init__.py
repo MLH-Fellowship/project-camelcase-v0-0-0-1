@@ -16,7 +16,7 @@ from flask_moment import Moment
 #     port=3306
 # )
 
-db = MySQLDatabase(
+db = MySQLDatabase( 
   os.getenv('MYSQL_DATABASE'),
   user=os.getenv('MYSQL_USER'),
   password=os.getenv('MYSQL_PASSWORD'),
