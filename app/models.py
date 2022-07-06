@@ -10,7 +10,7 @@ class TimelinePost(Model):
   name = CharField()
   email = CharField()
   content = TextField()
-  created_at = DateTimeField(default=datetime.utcnow())
+  created_at = DateTimeField(default=datetime.utcnow)
 
   class Meta:
     database = mydb
