@@ -4,8 +4,8 @@
 ############
 
 #activate source at session level
-source ./python3-virtualenv/bin/activate
-
+#source ./python3-virtualenv/bin/activate
+#source . venv/bin/activate
 #exports the required variables
 export FLASK_ENV="development"
 export FLASK_APP=run.py
