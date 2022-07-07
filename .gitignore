@@ -8,3 +8,5 @@ flask.sqlite
 **/notes.txt
 **/venv 
 **/questions_for_o.h.txt
+.vscode
+**/*lrn-test*
