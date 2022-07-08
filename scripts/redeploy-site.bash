@@ -82,7 +82,7 @@ if [[ \ $*\  == *\ --dev-mode\ * ]]; then
   fi
 fi
 
-if [[ \ $*\  == *\ --rebuid-docker\ * ]]; then
+if [[ \ $*\  == *\  --rebuild-docker\ * ]]; then
   docker compose -f docker-compose.yml down
   if [[ "$?" != "0" ]]; then 
     echo "WARNING: unable to bring down container"
