@@ -82,6 +82,19 @@ if [[ \ $*\  == *\ --dev-mode\ * ]]; then
   fi
 fi
 
+if [[ \ $*\  == *\ --rebuid-docker\ * ]]; then
+  docker compose -f docker-compose.yml down
+  if [[ "$?" != "0" ]]; then 
+    echo "WARNING: unable to bring down container"
+  fi 
+
+  docker compose -f docker-compose.yml up -d --build
+  if [[ "$?" != "0" ]]; then 
+    echo "WARNING: unable to build container"
+  fi
+
+fi
+
 if [[ \ $*\  == *\ --help\ * ]]; then
   echo "Here are all of the options available\
         \n\t--pull-update      => Gets the latest update from github\
