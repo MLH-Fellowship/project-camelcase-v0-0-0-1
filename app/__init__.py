@@ -16,7 +16,7 @@ from flask_moment import Moment
 #     port=3306
 # )
 
-db = MySQLDatabase(
+db = MySQLDatabase( 
   os.getenv('MYSQL_DATABASE'),
   user=os.getenv('MYSQL_USER'),
   password=os.getenv('MYSQL_PASSWORD'),
@@ -47,6 +47,9 @@ def create_app(config_profile: str):
 
         from .api_v1 import api_v1 as api_v1_blueprint
         app.register_blueprint(api_v1_blueprint, url_prefix='/api/v1')
+
+        from .main_v2 import main_v2 as main_v2_blueprint
+        app.register_blueprint(main_v2_blueprint, url_prefix='/v2')
 
     # print(app.config)
     # print(mysql)

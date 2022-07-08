@@ -20,7 +20,12 @@ class ProductionConfig(Config):
   DEBUG = False #enables debug mode
   FLASK_COVERAGE = False
 
+class TestingConfig(Config):
+  TESTING = True
+  WTF_CSRF_ENABLED = False
+  
 config = {
   'development': DevelopmentConfig,
-  'production': ProductionConfig
+  'production': ProductionConfig,
+  'testing': TestingConfig
 }

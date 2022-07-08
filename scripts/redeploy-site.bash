@@ -75,7 +75,11 @@ fi
 
 if [[ \ $*\  == *\ --dev-mode\ * ]]; then
   echo "WARMING: starting app in dev mode"
-  ./scripts/launch.bash
+  if [[ \ $*\  == *\ --global\ * ]]; then
+    ./scripts/launch.bash
+  else 
+    ./scripts/launch.bash --dev
+  fi
 fi
 
 if [[ \ $*\  == *\ --help\ * ]]; then
@@ -89,7 +93,7 @@ if [[ \ $*\  == *\ --help\ * ]]; then
         \n\t--help             => Shows this menu\
         "
 else 
-  echo "Exiting deploy script. Use --help for more"
+  echo "\nExiting deploy script. Use --help for more"
 fi
 
 # tmux attach

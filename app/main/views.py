@@ -26,7 +26,7 @@ def timeline():
         except:
             return abort(422)
         return redirect(url_for('main.timeline'));
-    posts = TimelinePost.select()
+    posts = TimelinePost.select().order_by(TimelinePost.created_at)
     return render_template('timeline.html', title='Timeline', form=form, timeline_events=[post for post in posts])
 
 

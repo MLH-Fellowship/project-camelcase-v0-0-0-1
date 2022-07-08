@@ -7,3 +7,6 @@ flask.sqlite
 .DS_Store
 **/notes.txt
 **/venv 
+**/questions_for_o.h.txt
+.vscode
+**/*lrn-test*

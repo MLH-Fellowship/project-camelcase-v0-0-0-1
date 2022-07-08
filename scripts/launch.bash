@@ -8,7 +8,12 @@ export FLASK_ENV="development"
 export FLASK_APP=run.py
 
 #uses flask CLI to run
-flask run --host=0.0.0.0
+if [[ \ $*\  == *\ --dev\ * ]]; then
+  flask run
+else 
+  flask run --host=0.0.0.0
+fi
+
 if [[ $? -ne 0 ]]; then
   echo "Unable to start Flask Server <Make sure Flask has been installed>" >&2
 fi
