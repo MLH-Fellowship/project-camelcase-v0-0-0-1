@@ -11,7 +11,7 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link {{ 'active' if active=='home' else '' }}" aria-current="page" href="{{ url_for('main.index') }}">Home</a>
-        <a class="nav-link {{ 'active' if active=='gabby' else '' }}" href="{{ url_for('main.about_gabby') }}">Gabby</a>
+        <a class="nav-link {{ 'active' if active=='timeline' else '' }}" href="{{ url_for('main.timeline') }}">timeline</a>
         <a class="nav-link {{ 'active' if active=='dario' else '' }}" href="{{ url_for('main.about_dario') }}">Dario</a>
       </div>
     </div>
