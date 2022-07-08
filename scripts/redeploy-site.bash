@@ -111,16 +111,3 @@ else
 fi
 
 # tmux attach
-
-# if [[ \ $*\  == *\  --rebuild-docker\ * ]]; then
-  # docker compose -f docker-compose.yml down
-  # if [[ "$?" != "0" ]]; then 
-  #   echo "WARNING: unable to bring down container"
-  # fi 
-
-  # docker compose -f docker-compose.yml up -d --build
-  # if [[ "$?" != "0" ]]; then 
-  #   echo "WARNING: unable to build container"
-  # fi
-
-# fi
