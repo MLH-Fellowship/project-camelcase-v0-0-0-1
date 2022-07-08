@@ -1,3 +1,4 @@
+.venv
 __pycache__
 *.pyc
 .env
@@ -5,8 +6,5 @@ venv
 python3-virtualenv
 flask.sqlite
 .DS_Store
-**/notes.txt
+notes.txt
 **/venv 
-**/questions_for_o.h.txt
-.vscode
-**/*lrn-test*
