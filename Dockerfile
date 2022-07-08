@@ -10,6 +10,11 @@ COPY . .
 
 RUN pip3 install -r requirements/prod.txt
 
-CMD [ "flask", "run", "--host=0.0.0.0" ]
+# ENTRYPOINT [ "flask", "deploy" ]
+
+# CMD [ "flask", "run", "--host=0.0.0.0" ]
+# CMD [ "flask", "run", "--host=0.0.0.0" ]
+
 
 EXPOSE 5000
+ENTRYPOINT ["./scripts/entry.sh"]
