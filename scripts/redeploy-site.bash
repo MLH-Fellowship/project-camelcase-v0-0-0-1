@@ -82,7 +82,7 @@ if [[ \ $*\  == *\ --dev-mode\ * ]]; then
   fi
 fi
 
-if [[ \ $*\  == *\  --rebuild-docker\ * ]]; then
+if [[ \ $*\  == *\ --with-docker\ * ]]; then
   docker compose -f docker-compose.yml down
   if [[ "$?" != "0" ]]; then 
     echo "WARNING: unable to bring down container"
@@ -92,17 +92,18 @@ if [[ \ $*\  == *\  --rebuild-docker\ * ]]; then
   if [[ "$?" != "0" ]]; then 
     echo "WARNING: unable to build container"
   fi
-
 fi
 
+
 if [[ \ $*\  == *\ --help\ * ]]; then
-  echo "Here are all of the options available\
+  printf "Here are all of the options available\
         \n\t--pull-update      => Gets the latest update from github\
         \n\t--update-env-prod  => Updates the virtual environment using production dependencies\
         \n\t--update-env-dev   => Udpates the virtual environment using development dependencies\
         \n\t--with-tmux        => Starts the application using a tmux session deattached\
         \n\t--with-service     => Starts the application using a service\
         \n\t--dev-mode         => Starts the application in dev mode without tmux or a service\
+        \n\t--with-docker      => Starts the application with docker by recomposing images\
         \n\t--help             => Shows this menu\
         "
 else 
@@ -110,3 +111,16 @@ else
 fi
 
 # tmux attach
+
+# if [[ \ $*\  == *\  --rebuild-docker\ * ]]; then
+  # docker compose -f docker-compose.yml down
+  # if [[ "$?" != "0" ]]; then 
+  #   echo "WARNING: unable to bring down container"
+  # fi 
+
+  # docker compose -f docker-compose.yml up -d --build
+  # if [[ "$?" != "0" ]]; then 
+  #   echo "WARNING: unable to build container"
+  # fi
+
+# fi
