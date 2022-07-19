@@ -8,7 +8,10 @@ from crypt import methods
  
 
 
-from dotenv import load_dotenv
+from dotenv import load_dotenv 
+load_dotenv()
+app = Flask(__name__)
+#bootstrap.init_app(app)
 
 #print("DATOS ++++++++",os.getenv("URL"))
 
@@ -18,22 +21,6 @@ mydb = MySQLDatabase(os.getenv("MYSQL_DATABASE"),
     host=os.getenv("MYSQL_HOST"),
     port=3306
 )
+
 bootstrap = Bootstrap()
-def create_app(config_profile: str):
-    #creates app instance
-    app = Flask(__name__)
-    #app.config.from_object(config[config_profile])
-    print(mydb)
-    #incldue library support
-    bootstrap.init_app(app)
-
-    #loads the view(s)
-    with app.app_context():
-        from .main import main as main_blueprint
-        app.register_blueprint(main_blueprint)
-        from . import models
-    
-
-    #returns app instance
-    return app
 
