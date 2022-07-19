@@ -3,6 +3,8 @@ from flask import Flask, render_template, request
 from configs import config
 from flask_bootstrap import Bootstrap
 from peewee import *
+from playhouse.shortcuts import model_to_dict
+from crypt import methods
  
 
 
@@ -20,7 +22,7 @@ bootstrap = Bootstrap()
 def create_app(config_profile: str):
     #creates app instance
     app = Flask(__name__)
-    app.config.from_object(config[config_profile])
+    #app.config.from_object(config[config_profile])
     print(mydb)
     #incldue library support
     bootstrap.init_app(app)
@@ -34,3 +36,4 @@ def create_app(config_profile: str):
 
     #returns app instance
     return app
+

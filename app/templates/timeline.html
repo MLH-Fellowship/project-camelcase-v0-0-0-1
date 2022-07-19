@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!--- HTML form data --->
+
+    <head>
+        <!-- Required meta tags -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width-device=width, initial-scale=1.0">
+        <title>Form submit width Fetch API</title>
+    </head>
+
+    <body>
+        <form id="form">
+            <input name="username" type="text">
+            <input name="password "type="password">
+            <button type="submit">Submit</button>
+        </form> 
+    </body>
+
+
+    <script>
+        const form = document.getElementById('form');
+    
+        form.addEventListener('submit', function(e) {
+        e.preventDefault()
+        })
+
+        const payload = new FormData(form)
+        console.log([...payload]);
+
+        fetch ('http://gabyjazzmin.duckdns.org:5000/timeline',{
+            method: "POST",
+            body: payload,
+        } )
+
+        .then(res => res.json)
+        .then(data=> console.log(data))
+        .catch(err => console.log(err))
+        
+    </script>
+</html>
