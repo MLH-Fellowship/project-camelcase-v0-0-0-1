@@ -1,7 +1,7 @@
 {% macro nav(active="home") -%}
 <nav class="navbar navbar-expand-lg" style="background-color: #05445E;">
   <div class="container-fluid">
-    <a class="navbar-brand" href="{{ url_for('main.index') }}"> 
+    <a class="navbar-brand" href="{{ url }}"> 
       <img src="./static/img/gj_logo.png" alt="" width="30" height="24" class="d-inline-block align-text-top rounded">
       Home
     </a>
@@ -10,8 +10,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link {{ 'active' if active=='home' else '' }}" aria-current="page" href="{{ url_for('main.index') }}">Home</a>
-        <a class="nav-link {{ 'active' if active=='gabby' else '' }}" href="{{ url_for('main.about_gabby') }}">About me</a>
+        <a class="nav-link {{ 'active' if active=='home' else '' }}" aria-current="page" href="{{ url }}">Home</a>
+        <a class="nav-link {{ 'active' if active=='gabby' else '' }}" href="{{ url }}">About me</a>
        
       </div>
     </div>
