@@ -6,14 +6,15 @@
         <!-- Required meta tags -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta charset="utf-8" />
-        <meta name="viewport" content="width-device=width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Form submit width Fetch API</title>
     </head>
 
     <body>
         <form id="form">
-            <input name="username" type="text">
-            <input name="password "type="password">
+            <input name="name" type="text">
+            <input name="email" type="email">
+            <input name="content" type="text">
             <button type="submit">Submit</button>
         </form> 
     </body>
@@ -23,20 +24,23 @@
         const form = document.getElementById('form');
     
         form.addEventListener('submit', function(e) {
-        e.preventDefault()
-        })
+            e.preventDefault();
+        
 
-        const payload = new FormData(form)
-        console.log([...payload]);
+            const prePayload = new FormData(form);
+            const payload = new URLSearchParams(prePayload);
+            
+            console.log([...payload]);
 
-        fetch ('http://gabyjazzmin.duckdns.org:5000/timeline',{
-            method: "POST",
-            body: payload,
-        } )
+            fetch ('http://httpbin.org/post',{
+                method: "POST",
+                body: prePayload,
+            } )
 
-        .then(res => res.json)
-        .then(data=> console.log(data))
-        .catch(err => console.log(err))
+            .then(res => res.json)
+            .then(data => console.log(data))
+            .catch(err => console.log(err));
+    })
         
     </script>
 </html>
