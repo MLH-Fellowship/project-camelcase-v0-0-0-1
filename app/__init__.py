@@ -5,6 +5,9 @@ from peewee import *
 from playhouse.shortcuts import model_to_dict
 from crypt import methods
 from dotenv import load_dotenv
+import datetime
+
+import regex as re
 
 load_dotenv()
 
@@ -27,6 +30,16 @@ else:
     )
     
 print(mydb)
+class TimelinePost(Model):
+    name = CharField()
+    email = CharField()
+    content = TextField()
+    created_at = DateTimeField(default=datetime.datetime.now)
+
+    class Meta:
+        database = mydb
+mydb.connect()
+mydb.create_tables([TimelinePost])
 
 @app.route('/')
 def index():
@@ -53,9 +66,19 @@ def post_time_line_post():
     name = request.form['name']
     email = request.form['email']
     content = request.form['content']
-    timeline_post = TimelinePost.create(name=name, email=email, content=content)
+    regex = r'\b[A-Za-z0-9.%+-]+@[A-Za-z0-9.-]+.[A-Z|a-z]{2,}\b'
+    if not request.form['name']:
+        return "Invalid name", 400
+    elif not (re.fullmatch(regex, request.form['email'])):
+        return "Invalid email", 400
+    elif not request.form['content']:
+        return "Invalid content", 400
+    else:
+        timeline_post = TimelinePost.create(name=name, email=email, content=content)
+        return model_to_dict(timeline_post)
+    
 
-    return timeline_post.to_json()
+    #return timeline_post.to_json()
 
 @app.route('/api/timeline_post', methods=['GET'])
 def get_time_line_post():
