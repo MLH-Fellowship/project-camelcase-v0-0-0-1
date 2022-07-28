@@ -3,8 +3,11 @@ from flask import Flask, render_template, request
 from flask_bootstrap import Bootstrap
 from peewee import *
 from playhouse.shortcuts import model_to_dict
-from crypt import methods
+import regex as re
+import datetime
 from dotenv import load_dotenv
+
+
 
 load_dotenv()
 
@@ -27,7 +30,21 @@ else:
     )
     
 print(mydb)
+class TimelinePost(Model):
+    name = CharField()
+    email = CharField()
+    content = TextField()
+    created_at = DateTimeField(default=datetime.datetime.now)
 
+    def to_json(self):
+        return model_to_dict(self)
+        
+    class Meta:
+        database = mydb
+
+
+mydb.connect()
+mydb.create_tables([TimelinePost])
 @app.route('/')
 def index():
     return render_template('index.html', title="Meet us", url=os.getenv("URL"))
@@ -50,13 +67,22 @@ def visited_map(for_person: str = None):
 
 @app.route('/api/timeline_post', methods=['POST'])
 def post_time_line_post():
+
     name = request.form['name']
     email = request.form['email']
     content = request.form['content']
-    timeline_post = TimelinePost.create(name=name, email=email, content=content)
-
-    return timeline_post.to_json()
-
+  
+    regex = r'\b[A-Za-z0-9.%+-]+@[A-Za-z0-9.-]+.[A-Z|a-z]{2,}\b'
+    if not request.form['name']:
+        return "Invalid name", 400
+    elif not (re.fullmatch(regex, request.form['email'])):
+        return "Invalid email", 400
+    elif not request.form['content']:
+        return "Invalid content", 400
+    else:
+        timeline_post = TimelinePost.create(name=name, email=email, content=content)
+        return model_to_dict(timeline_post)
+        
 @app.route('/api/timeline_post', methods=['GET'])
 def get_time_line_post():
     posts = TimelinePost.select().order_by(TimelinePost.created_at.desc())
