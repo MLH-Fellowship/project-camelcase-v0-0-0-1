@@ -7,7 +7,7 @@ from crypt import methods
 from dotenv import load_dotenv
 import datetime
 
-import regex as re
+#import regex as re
 
 load_dotenv()
 
@@ -66,17 +66,16 @@ def post_time_line_post():
     name = request.form['name']
     email = request.form['email']
     content = request.form['content']
-    regex = r'\b[A-Za-z0-9.%+-]+@[A-Za-z0-9.-]+.[A-Z|a-z]{2,}\b'
+    #regex = r'\b[A-Za-z0-9.%+-]+@[A-Za-z0-9.-]+.[A-Z|a-z]{2,}\b'
     if not request.form['name']:
         return "Invalid name", 400
-    elif not (re.fullmatch(regex, request.form['email'])):
+    elif "@" not in email or email == "":
         return "Invalid email", 400
     elif not request.form['content']:
         return "Invalid content", 400
     else:
         timeline_post = TimelinePost.create(name=name, email=email, content=content)
         return model_to_dict(timeline_post)
-    
 
     #return timeline_post.to_json()
 
