@@ -6,6 +6,9 @@ from playhouse.shortcuts import model_to_dict
 import regex as re
 import datetime
 from dotenv import load_dotenv
+import datetime
+
+#import regex as re
 
 
 
@@ -42,7 +45,6 @@ class TimelinePost(Model):
     class Meta:
         database = mydb
 
-
 mydb.connect()
 mydb.create_tables([TimelinePost])
 @app.route('/')
@@ -71,18 +73,16 @@ def post_time_line_post():
     name = request.form['name']
     email = request.form['email']
     content = request.form['content']
-  
-    regex = r'\b[A-Za-z0-9.%+-]+@[A-Za-z0-9.-]+.[A-Z|a-z]{2,}\b'
     if not request.form['name']:
         return "Invalid name", 400
-    elif not (re.fullmatch(regex, request.form['email'])):
+    elif "@" not in email or email == "":
         return "Invalid email", 400
     elif not request.form['content']:
         return "Invalid content", 400
     else:
         timeline_post = TimelinePost.create(name=name, email=email, content=content)
         return model_to_dict(timeline_post)
-        
+
 @app.route('/api/timeline_post', methods=['GET'])
 def get_time_line_post():
     posts = TimelinePost.select().order_by(TimelinePost.created_at.desc())
